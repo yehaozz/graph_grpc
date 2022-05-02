@@ -1,0 +1,46 @@
+// To compile, run the following command
+// protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative .\graphgrpc\graph_grpc.proto
+syntax = "proto3";
+
+option go_package = "./graphgrpc";
+
+package graphgrpc;
+
+service Operations {
+    // Post a graph and return an ID of the graph.
+    rpc PostGraph(stream Vertex) returns (GraphID) {}
+
+    // Get the shortest path between two vertices in a graph.
+    //
+    // -1 is returned if there is not a graph corresponding to the given Id.
+    rpc ShortestPath(VertexDescription) returns (Distance) {}
+
+    // Delete a graph.
+    // 
+    // Return a message indicating whether the delete process succeeds.
+    rpc DeleteGraph(GraphID) returns (DeleteResult) {}
+}
+
+message Vertex {
+    // TODO: HOW TO DEFINE GRAPHDATA???
+    int64 vertexID = 1;
+}
+
+message GraphID {
+    // TODO: What should the ID be? A randomly generated number?
+    int64 id = 1;
+}
+
+message VertexDescription {
+    int64 id = 1;
+    Vertex vertex1 = 2;
+    Vertex vertex2 = 3;
+}
+
+message Distance {
+    int64 distance = 1;
+}
+
+message DeleteResult {
+    string result = 1;
+}
