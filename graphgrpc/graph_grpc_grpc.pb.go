@@ -4,7 +4,7 @@
 // - protoc             v3.14.0
 // source: graphgrpc/graph_grpc.proto
 
-package graphgrpc
+package graph_grpc
 
 import (
 	context "context"

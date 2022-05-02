@@ -1,4 +1,4 @@
-module graphgrpc
+module github.com/yehaozz/graph_grpc
 
 go 1.18
 
