@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/yehaozz/graph_grpc/tree/main/graphgrpc;graphgrpc";
+option go_package = "github.com/yehaozz/graph_grpc/tree/main/graphgrpc";
 
 package graphgrpc;
 
